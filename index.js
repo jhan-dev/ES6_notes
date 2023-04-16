@@ -53,3 +53,62 @@ console.log(pizza);
 //  Uncaught TypeError: ...Assignment to constant variable.
 
 //===============================================
+// Not using Template strings
+
+function print(firstName){
+  console.log("Hello", firstName);
+}
+
+print("Isabelle");
+// Output1:
+// Hello Isabelle
+
+//================================================
+// Using Template strings
+
+function print(firstName){
+  console.log(`Hello ${firstName}`);
+}
+
+print("Isabelle");
+
+// Output2:
+// Hello Isabelle
+
+//================================================
+// Searching Strings
+
+const planet = "Earth";
+
+//startsWith() & endsWith() are case sensitive!
+
+console.log(planet.startsWith("Ear"));
+// Output: true
+
+console.log(planet.startsWith("th"));
+// Output: false
+
+console.log(planet.startsWith("ear"));
+// Output: false
+
+console.log(planet.endsWith("th"));
+// Output: true
+
+console.log(planet.endsWith("s"));
+// Output: false
+
+console.log(planet.includes("h"));
+// Output: true
+
+console.log(planet.includes("Earth1"));
+//  Output: false
+
+console.log(planet.includes("art"));
+//  Output: true
+
+// search() will give you location of match! 
+
+console.log(planet.search("art"));
+//  Output: 1
+
+
