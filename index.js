@@ -80,7 +80,7 @@ print("Isabelle");
 
 const planet = "Earth";
 
-//startsWith() & endsWith() are case sensitive!
+// startsWith() & endsWith() are case sensitive!
 
 console.log(planet.startsWith("Ear"));
 // Output: true
@@ -101,14 +101,34 @@ console.log(planet.includes("h"));
 // Output: true
 
 console.log(planet.includes("Earth1"));
-//  Output: false
+// Output: false
 
 console.log(planet.includes("art"));
-//  Output: true
+// Output: true
 
 // search() will give you location of match! 
 
 console.log(planet.search("art"));
-//  Output: 1
+// Output: 1
+
+//===============================================
+// Symbols are a new primitive data type (Used for unique IDs). 
+// Does not conflict with Object string keys.
+// Using Symbol prevents a naming conflict with an object.
+
+const id = Symbol();
+
+const courseInfo = {
+  title: "JavaScript",
+  topics: ["strings", "arrays", "objects"],
+  id: "js-course"
+};
+
+courseInfo[id] = 41284;
+console.log(courseInfo);
+// Output: {title: "JavaScript", topics: Array(3), id: "js-course", Symbol(): 41294}
+
+console.log(courseInfo[id]);
+// Output: 41284
 
 
