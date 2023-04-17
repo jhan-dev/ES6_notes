@@ -131,4 +131,87 @@ console.log(courseInfo);
 console.log(courseInfo[id]);
 // Output: 41284
 
+//===============================================
+// Maps hold key:value pairs.
+
+let course = new Map();
+
+course.set("react", { description: "ui" });
+course.set("jest", { description: "testing" });
+
+console.log(course);
+// Output: Map(2) {"react" => {...}, "jest" => {...}}
+
+console.log(course.react);
+// Output: undefined
+
+console.log(course.get.react);
+// Output: {description: "ui"}
+
+// Maps and objects are different from each other.
+// Maps can be accessed with .get, while dot notation is used for objects.
+
+let details = new Map([
+  [new Date(), "today"],
+  [2, { javascript: ["js", "node", "react"] }],
+  ["items", [1, 2]]
+]);
+
+console.log(details.size);
+// Output: 3
+
+details.forEach(function(item){
+  console.log(item);
+  // Output: today
+  //         {javascript: Array(3)}
+  //         (2) [1, 2]
+});
+
+// Unlike objects, maps iterate by insertion order they were added.
+
+//===============================================
+// Sets are a collection of values that can be of any type, as long as every entry is unique.
+
+let books = new Set();
+books.add("Pride and Prejudice");
+books.add("War and Peace");
+
+console.log(books);
+// Output: Set(2) {"Pride and Prejudice", "War and Peace"}...
+
+console.log(books.size);
+// Output: 2
+
+console.log("has Oliver Twist", books.has("Oliver Twist"));
+// Output: has Oliver Twist false
+
+books.add("Oliver Twist");
+
+console.log("has Oliver Twist", books.has("Oliver Twist"));
+// Output: has Oliver Twist true
+
+books.delete("Oliver Twist");
+
+// Will always display unique sets, no duplicates even with reentry of same data.
+books.add("War and Peace");
+
+console.log(books)
+// Output: Set(2) {"Pride and Prejudice", "War and Peace"}...
+
+// .map() does not work on sets. Must use forEach to iterate.
+books.map(function (item){
+  console.log(item);
+  // Output: Uncaught TypeError:
+  // books.map is not a function...
+});
+
+books.forEach(function (item){
+  console.log(item);
+  // Output: Pride and Prejudice
+  //         War and Peace
+  //         has Oliver Twist false
+});
+
+//================================================
+
 
