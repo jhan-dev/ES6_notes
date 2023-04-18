@@ -215,6 +215,7 @@ books.forEach(function (item){
 //================================================
 // Spread Operator turns elements of an Array into arguments of an function call
 // or elements into an Array literal.
+// Duplicate entries will log, does not have to be unique.
 
 let cats = ["Biscuit", "Muffin"];
 let dogs = ["Meatloaf", "Bacon"];
@@ -230,7 +231,32 @@ console.log(spreadAnimals);
 // Output: ["Albert", "Gilbert", "Winston", "Biscuit", "Muffin", "Meatloaf", "Bacon"]
 
 //=================================================
-//
+// Destructuring allows users to extract data from arrays and objects and assign them
+// to variables.
 
+let cities = ["New York City", "Los Angeles", "Chicago", "Houston", "Miami", "Seattle"];
 
+console.log(cities[0]);
+// Output: New York City
 
+let [first, second, last] = ["New York City", "Los Angeles", "Chicago", "Houston", "Miami", "Seattle"];
+
+console.log(first);
+// Output: New York City
+
+console.log(second);
+// Output: Los Angeles
+
+console.log(last);
+// Output: Chicago
+// Destructuring parameters go by placement of Array.
+
+// To skip placements use "commas" , to take the place of parameters until targeted value is selected.
+let [firstCity, secondCity, , , , lastCity] = ["New York City", "Los Angeles", "Chicago", "Houston", "Miami", "Seattle"];
+
+console.log(lastCity);
+// Output: Seattle
+
+//===================================================
+// 
+// 
