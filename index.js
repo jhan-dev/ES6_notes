@@ -213,5 +213,24 @@ books.forEach(function (item){
 });
 
 //================================================
+// Spread Operator turns elements of an Array into arguments of an function call
+// or elements into an Array literal.
+
+let cats = ["Biscuit", "Muffin"];
+let dogs = ["Meatloaf", "Bacon"];
+
+let animals = ["Albert", "Gilbert", "Winston", cats, dogs];
+
+console.log(animals);
+// Output: ["Albert", "Gilbert", "Winston", Array(2), Array(2)]
+
+let spreadAnimals = ["Albert", "Gilbert", "Winston", ...cats, ...dogs];
+
+console.log(spreadAnimals);
+// Output: ["Albert", "Gilbert", "Winston", "Biscuit", "Muffin", "Meatloaf", "Bacon"]
+
+//=================================================
+//
+
 
 
