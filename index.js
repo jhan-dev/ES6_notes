@@ -258,5 +258,19 @@ console.log(lastCity);
 // Output: Seattle
 
 //===================================================
+// .includes() can be used with Arrays not just Strings.
+
+let crayons = ["Red", "Green", "Orange", "Blue", "Yellow"];
+
+console.log(crayons.includes("Green"));
+// Output: true
+
+console.log(crayons.includes("Purple"));
+// Output: false
+
+// .includes() was implemented into ES6+. Used to be added with a 3rd-party
+// to handle this type of functionality prior to ES6.
+
+//=====================================================
 // 
-// 
+
