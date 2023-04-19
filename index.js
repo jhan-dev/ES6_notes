@@ -272,5 +272,38 @@ console.log(crayons.includes("Purple"));
 // to handle this type of functionality prior to ES6.
 
 //=====================================================
-// 
+// The object below has some repetitive lines of code. Using object literals
+// can help cut down on some of that.
+
+function skier(name, sound) {
+  return {
+    name: name,
+    sound: sound,
+    powderYell: function() {
+      let yell = this.sound.toupperCase();
+      console.log(`${yell}! ${yell}!`);
+    }
+  };
+}
+
+skier("Joseph", "woo").powderYell();
+
+// We can get rid of the name and sound duplicate with the colon as below.
+// This can be called Object Literal Enhancement.
+
+function skier(name, sound) {
+  return {
+    name,
+    sound,
+    powderYell: function() {
+      let yell = this.sound.toupperCase();
+      console.log(`${yell}! ${yell}!`);
+    }
+  };
+}
+
+skier("Joseph", "woo").powderYell();
+
+//======================================================
+//
 
