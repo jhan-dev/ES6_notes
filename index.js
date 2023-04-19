@@ -272,5 +272,117 @@ console.log(crayons.includes("Purple"));
 // to handle this type of functionality prior to ES6.
 
 //=====================================================
+// The object below has some repetitive lines of code. Using object literals
+// can help cut down on some of that.
+
+function skier(name, sound) {
+  return {
+    name: name,
+    sound: sound,
+    powderYell: function() {
+      let yell = this.sound.toupperCase();
+      console.log(`${yell}! ${yell}!`);
+    }
+  };
+}
+
+skier("Joseph", "woo").powderYell();
+
+// We can get rid of the name and sound duplicate with the colon as below.
+// This can be called Object Literal Enhancement.
+
+function skier(name, sound) {
+  return {
+    name,
+    sound,
+    powderYell: function() {
+      let yell = this.sound.toupperCase();
+      console.log(`${yell}! ${yell}!`);
+    }
+  };
+}
+
+skier("Joseph", "woo").powderYell();
+
+//=====================================================
+// You can use the spread operator with Arrays.
+
+const daytime = {
+  breakfast: "Oatmeal",
+  lunch: "Ham and cheese sandwich"
+};
+
+const nighttime = "Spaghetti and meatball";
+
+const backpackingMeals = {
+  daytime,
+  nighttime
+};
+
+console.log(backpackingMeals);
+// Output: {daytime: {...}, nighttime: "Spaghetti and meatball"}
+
+const spreadOperatorPack = {
+  ...daytime,
+  nighttime
+};
+
+console.log(spreadOperatorPack);
+// Output: {breakfast: "Oatmeal", lunch: "Ham and cheese sandwich", nighttime: Spaghetti and meatball"}
+
+//======================================================
+// Destructuring an Object
+
+const sandwich = {
+  title: "Reuben",
+  price: 6.50,
+  description: "Classic",
+  ingredients: [
+    "bread",
+    "corned beef",
+    "dressing",
+    "sauerkraut",
+    "cheese"
+  ]
+};
+
+console.log(sandwich.title) // --> Reuben
+console.log(sandwich.price) // --> 6.50
+
+// Destructure the object by wrapping data parameters.
+// Console.log the keys to get teh same result.
+
+const { title, price } = {
+  title: "Reuben",
+  price: 6.50,
+  description: "Classic",
+  ingredients: [
+    "bread",
+    "corned beef",
+    "dressing",
+    "sauerkraut",
+    "cheese"
+  ]
+};
+
+console.log(title) // --> Reuben
+console.log(price) // --> 6.50
+
+// Example of passing destructuring object literal data.
+
+const vacation = {
+  destination: "Iceland",
+  travelers: 2,
+  activities: "Hiking",
+  cost: 1500
+};
+
+function marketing({ destination, activity }) {
+  return `Come to ${destination} and do some ${activity} to have a time of your life!`;
+};
+
+console.log(marketing(vacation)); // --> Come to Iceland and do some Hiking to have a time of your life!
+
+//====================================================
 // 
 
