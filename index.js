@@ -384,5 +384,92 @@ function marketing({ destination, activity }) {
 console.log(marketing(vacation)); // --> Come to Iceland and do some Hiking to have a time of your life!
 
 //====================================================
-// 
+// For of loop is a new iteration syntax that can replace for-in & for each.
+// Iterable objects can be used such as arrays, strings, maps, and sets.
+
+for(let letter of "JavaScript"){
+  console.log(letter);
+}
+/*
+  Output:
+  J
+  a
+  v
+  a
+  S
+  c
+  r
+  i
+  p
+  t
+*/
+
+let topics1 = ["JavaScript", "Node", "CSS"];
+
+for(let topic of topics1){
+  console.log(topic);
+}
+/*
+  Output:
+    JavaScript
+    Node
+    CSS
+*/
+
+let topics2 = new Map();
+topics.set("HTML", "/topic/html");
+topics.set("CSS", "/topic/css");
+topics.set("JavaScript", "/topic/javascript");
+
+for(let topic of topics2){
+  console.log(topic);
+}
+/*
+Output:
+  ["HTML", "/topic/html"]
+  ["CSS", "/topic/css"]
+  ["JavaScript", "/topic/javascript"]
+*/
+
+// Using the .keys() will display key from the map.
+
+for(let topic of topics2.keys()){
+  console.log(topic);
+}
+
+/*
+  Output:
+    HTML
+    CSS
+    JavaScript
+*/
+
+// Using the .values() will display key value from the map.
+
+for(let topic of topics2.values()){
+  console.log(topic);
+}
+
+/*
+  Output:
+    /topic/html
+    /topic/css
+    /topic/javascript
+*/
+
+// Using the .entries() will display the key value pairs from the map.
+
+for(let topic of topics2.entries()){
+  console.log(topic);
+}
+
+/*
+  Output:
+    ["HTML", "/topic/html"]
+    ["CSS", "/topic/css"]
+    ["JavaScript", "/topic/javascript"]
+*/
+
+//================================================================
+//
 
