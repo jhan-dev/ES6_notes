@@ -471,5 +471,84 @@ for(let topic of topics2.entries()){
 */
 
 //================================================================
+// Classes are used in OOP to encourage reusability.
+
+class Vehicle {
+  constructor(description, wheels) {
+    this.description = description;
+    this.wheels = wheels;
+  }
+
+  describeYourself() {
+    console.log(`I am a ${this.description} with ${this.wheels} wheels.`);
+  }
+}
+
+let mysteryMachine = new Vehicle("groovy van", 4);
+
+console.log(mysteryMachine);
+// Output: Vehicle {description: "groovy Van", wheels: 4}
+
+mysteryMachine.describeYourself();
+// Output: I am a groovy van with 4 wheels.
+
+//================================================================
+// Inheritance from a Class
+
+class SemiTruck extends Vehicle {
+  constructor() {
+    super("semi truck", 18)
+  }
+}
+
+let groceryStoreSemi = new SemiTruck();
+
+groceryStoreSemi.describeYourself();
+// Output: I am a semi truck with 18 wheels.
+
+//================================================================
+// Getting and Setting Class values
+// JavaScript has a get method and set method.
+// Get method or getter method grabs the value of a specific property.
+// Set method or setter method changes the value of a specific property.
+
+let attendance = {
+  _list: [],
+  set addName(name) {
+    this._list.push(name);
+  },
+  get list() {
+    return this._list.join(", ");
+  }
+};
+
+attendance.addName = "Sponge Bob";
+attendance.addName = "Peter Griffin";
+attendance.addName = "Bart Simpson";
+console.log(attendance.list);
+// Output: Sponge Bob, Peter Griffin, Bart Simpson
+
+//================================================================
+// Getters and Setters can be used with classes.
+
+class Hike {
+  constructor(distance, pace) {
+    this.distance = distance;
+    this.pace = pace;
+  }
+  get lengthInHours() {
+    return `${this.calcLength()} hours`;
+  }
+  calcLength() {
+    return this.distance / this.pace;
+  }
+}
+
+const redRock = new Hike(10, 2);
+
+console.log(redRock.lengthInHours);
+// Output: 5 hours
+
+//================================================================
 //
 
