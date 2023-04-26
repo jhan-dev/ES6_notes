@@ -611,5 +611,95 @@ haveFun("biking");
 // Only the first parameter was overwritten and the 2nd parameter is using the default value.
 
 //================================================================
-//
+// Arrow functions are an abbreviated way of working with functions.
+
+let studentList1 = function(students) {
+  console.log(students);
+};
+
+studentList1(["A", "B", "C"]);
+// Output: ["A", "B", "C"]
+
+let studentList2 = (students) => console.log(students);
+
+studentList2(["D", "E", "F"]);
+// Output: ["D", "E", "F"]
+
+let list1 = ["apple", "banana", "cherry"];
+
+list1.map(function(item){
+  console.log(item);
+});
+// Output: 
+//         apple
+//         banana
+//         cherry
+
+let list2 = ["red", "white", "blue"];
+
+list2.map((item) => console.log(item));
+// Output:
+//        red
+//        white
+//        blue
+
+//=============================================================
+// Arrow functions can also help with scope of this in Javascript.
+
+let person1 = {
+  fName: "Frank",
+  hobbies: ["movies", "music", "camping"],
+  printHobbies: function() {
+    this.hobbies.forEach(function(hobby){
+      let string = `${this.fName} likes ${hobby}`;
+      console.log(string);
+    });
+  }
+};
+
+person1.printHobbies();
+// Output: undefined likes movies
+//         undefined likes music
+//         undefined likes camping
+
+// Declare a variable for this.
+
+let person2 = {
+  fName: "Sam",
+  hobbies: ["books", "art", "cats"],
+  printHobbies: function() {
+    let _this = this.hobbies.forEach(function(hobby){
+      let string = `${_this.fName} likes ${hobby}`;
+      console.log(string);
+    });
+  }
+};
+
+person2.printHobbies();
+// Output: Sam likes books
+//         Sam likes art
+//         Sam likes cats
+
+// A better way of bypassing this issue is to use an Arrow function.
+
+let person3 = {
+  fName: "Louis",
+  hobbies: ["work", "pills", "zombies"],
+  printHobbies: function() {
+    this.hobbies.forEach((hobby) => {
+      let string = `${this.fName} likes ${hobby}`;
+      console.log(string);
+    });
+  }
+};
+
+person3.printHobbies();
+// Output: Louis likes work
+//         Louis likes pills
+//         Louis likes zombies
+
+// The arrow function inside printHobbies is helping this stay in scope.
+
+//=============================================================
+// 
 
