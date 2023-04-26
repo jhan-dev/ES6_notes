@@ -550,5 +550,66 @@ console.log(redRock.lengthInHours);
 // Output: 5 hours
 
 //================================================================
+// .repeat method builds and returns a new string.
+
+let yell = "Woo!";
+
+let party = yell.repeat(20);
+
+console.log(party.lengthInHours);
+// Output: Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!Woo!
+
+let cat = {
+  meow(times) {
+    console.log("melow".repeat(times));
+  },
+
+  purr(times) {
+    console.log("prrr".repeat(times));
+  },
+
+  snore(times) {
+    console.log("zzz".repeat(times));
+  }
+};
+
+cat.meow(3);
+// Output: meowmeowmeow
+
+cat.purr(5);
+// Output: prrrprrrprrrprrrprrr
+
+cat.snore(7);
+// Output: zzzzzzzzzzzzzzzzzzzzz
+
+//================================================================
+// Setting default function parameters.
+
+function add(x = 5, y = 6) {
+  console.log(x + y);
+}
+
+add();
+// Output: 11
+
+add(1, 2);
+// Output: 3
+// The default parameters are overwritten with the new parameters given.
+
+function haveFun(
+  activityName = "hiking", 
+  time = 3
+) {
+  console.log(`Today I will go ${activityName} for ${time} hours.`);
+}
+
+haveFun("biking", 2.5);
+// Output: Today I will go biking for 2.5 hours.
+
+haveFun("biking");
+// Output: Today I will go biking for 3 hours
+// Only the first parameter was overwritten and the 2nd parameter is using the default value.
+
+//================================================================
 //
 
