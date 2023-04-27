@@ -701,5 +701,39 @@ person3.printHobbies();
 // The arrow function inside printHobbies is helping this stay in scope.
 
 //=============================================================
-// 
+// Generators are a new type of functions that allow you to pause functions
+// in the middle of execution to be resumed later.
 
+function* director() {
+  yield "Three";
+  yield "Two";
+  yield "One";
+  yield "Action";
+}
+
+let countdown = director();
+
+// .value grabs the key value of the object.
+
+console.log(countdown.next().value);
+// Output: 
+//  Three
+
+console.log(countdown.next().value);
+// Output: 
+//  Two
+
+console.log(countdown.next().value);
+// Output: 
+//  One
+
+console.log(countdown.next());
+// Output: 
+//  {value: "Action", done: false}
+
+console.log(countdown.next());
+// Output: 
+//  {value: "undefined", done: true}
+
+//==============================================================
+//
