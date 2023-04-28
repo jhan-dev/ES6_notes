@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 //============================================
 // Not using let
 var topic = "JavaScript";
@@ -746,7 +748,7 @@ const delay = (seconds) =>
       );
     }
 
-    setTimeout(resolve, seconds * 1000)
+    setTimeout((resolve, seconds * 1000)
   );
 
   console.log("Zero seconds");
@@ -762,13 +764,13 @@ const delay = (seconds) =>
 // Promises are also used to load data.
 
 const spacePeople = () => {
-  return new Promise((resolve, rejects) => {
+  return new Promise((resolves, rejects) => {
     const api = "http://api.open-notify.org/astros.json";
     const request = new XMLHttpRequest();
     request.open("GET", api);
     request.onload = () => {
       if (request.status === 200) {
-        resolves(JSON.parse(request.response))l
+        resolves(JSON.parse(request.response));
       }
       else {
         rejects(Error(request.statusText));
@@ -781,8 +783,8 @@ const spacePeople = () => {
 
 // Standard format or template to sending an HTTP request with Javascript.
 
-spacePeople().then((spaceData) => 
-  console.log(spaceData),
+spacePeople().then(
+  (spaceData) => console.log(spaceData),
   (err) => 
     console.error(new Error("Can't load people"))
 );
@@ -812,7 +814,7 @@ spaceNames().then(console.log);
 // be what ever is returned from the function.
 
 const delay = (seconds) =>
-  new Promise((resolve) => 
+  new Promise((resolves) => 
     setTimeout(resolves, seconds * 1000)
   );
 
@@ -828,14 +830,14 @@ const countToFive = async () => {
 
 countToFive();
 
-const githubRequests = async (login) => {
+const githubRequest = async (login) => {
   let response = await fetch(
     `https://api.github.com/users/${login}`
-  )
+  );
+
   let json = await response.json();
-  let summary = `${json.name}, ${json.company}`
-  console.log(summary);
+  let summary = `${json.name}`;
+  console.log(summary)
 };
 
-githubRequests("jhan-dev");
-
+githubRequest("jhan-dev");
