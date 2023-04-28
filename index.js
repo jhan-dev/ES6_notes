@@ -736,4 +736,78 @@ console.log(countdown.next());
 //  {value: "undefined", done: true}
 
 //==============================================================
-//
+// Promises assist with asynchronous behavior in Javascript.
+
+const delay = (seconds) => 
+  new Promise((resolve, reject) => {
+    if (typeof seconds != "number") {
+      reject(
+        new Error("Seconds must be a number.")
+      );
+    }
+
+    setTimeout(resolve, seconds * 1000)
+  );
+
+  console.log("Zero seconds");
+  delay(1).then(() => console.log("One second"))
+// Output: 
+// Zero seconds
+// One second
+
+// After 1 second delay, the 2nd console log prints.
+// Promises are either pass or fail.
+
+//===============================================================
+// Promises are also used to load data.
+
+const spacePeople = () => {
+  return new Promise((resolve, rejects) => {
+    const api = "http://api.open-notify.org/astros.json";
+    const request = new XMLHttpRequest();
+    request.open("GET", api);
+    request.onload = () => {
+      if (request.status === 200) {
+        resolves(JSON.parse(request.response))l
+      }
+      else {
+        rejects(Error(request.statusText));
+      }
+    };
+    request.onerror = (err) => rejects(err);
+    request.send();
+  });
+};
+
+// Standard format or template to sending an HTTP request with Javascript.
+
+spacePeople().then((spaceData) => 
+  console.log(spaceData),
+  (err) => 
+    console.error(new Error("Can't load people"))
+);
+
+//================================================================
+// Fetch is a function that works natively in the browser.
+// Fetch returns Promises, takes in an URL of our API.
+
+let getSpacePeople = () => 
+  fetch("http://api.open-notify.org/astros.json")
+    .then((res) => res.json());
+
+getSpacePeople().then(console.log);
+// Output: {message: "success", number: 5, people: Array(5)}
+
+let spaceNames = () =>
+  getSpacePeople()
+    .then(json => json.people)
+    .then(people => people.map(p => p.name))
+    .then(names => names.join(", "));
+
+spaceNames().then(console.log);
+// Output: Chris Cassidy, Anatoly Ivanishin, Ivan Vagner, Doug Hurley, Bob Behnken
+
+//================================================================
+// 
+
+
