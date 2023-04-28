@@ -828,6 +828,14 @@ const countToFive = async () => {
 
 countToFive();
 
+const githubRequests = async (login) => {
+  let response = await fetch(
+    `https://api.github.com/users/${login}`
+  )
+  let json = await response.json();
+  let summary = `${json.name}, ${json.company}`
+  console.log(summary);
+};
 
-
+githubRequests("jhan-dev");
 
