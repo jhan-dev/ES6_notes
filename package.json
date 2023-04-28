@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@types/node-fetch": "^2.6.3",
+    "node-fetch": "^2.6.9"
+  },
+  "name": "es6_notes",
+  "description": "Additional notes and examples are in index.js",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhan-dev/ES6_notes.git"
+  },
+  "author": "jhan-dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhan-dev/ES6_notes/issues"
+  },
+  "homepage": "https://github.com/jhan-dev/ES6_notes#readme"
+}
